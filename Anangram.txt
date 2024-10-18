@@ -1,0 +1,51 @@
+A Java Program to determine whether two strings are the anagram
+CODE
+import java.util.Scanner;
+class Anangram {
+ public static void main(String[] args) {
+ Scanner sc=new Scanner(System.in);
+ System.out.println("Enter 1st string:");
+ String str1=sc.nextLine();
+ System.out.println("Enter 2nd string:");
+ String str2=sc.nextLine();
+ str2=str2.toLowerCase();
+ str1=str1.toLowerCase();
+ int arr1[]=new int[256];
+ int arr2[]=new int[256];
+ int len1=str1.length();
+ int len2=str2.length();
+ int ct=0;
+if(str1.length()!=str2.length())
+ System.out.println("Given string is not anangram");
+ else
+ {
+ for(int i=0;i<str1.length();i++)
+ {
+ arr1[str1.charAt(i)]++;
+ }
+ for(int i=0;i<str2.length();i++)
+ {
+ arr2[str2.charAt(i)]++;
+ }
+ for(int i=0;i<256;i++)
+ {
+ if(arr1[i]!=arr2[i])
+ {
+ ct++;
+ break;
+ }
+ }
+ if(ct==0)
+ System.out.println("Given strings are anangram:");
+ else
+ System.out.println("Given strings are not anangram:");
+ }
+ }
+}
+OUPUT
+Enter 1st string:
+abac
+Enter 2nd string:
+caba
+Given strings are anangram:
+ 
